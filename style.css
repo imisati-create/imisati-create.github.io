@@ -1,153 +1,62 @@
-:root {
-  --bg: #0f0f0f;        /* black */
-  --ink: #f5f1e0;      /* warm off-white text */
-  --teal: #d4a017;     /* gold accent (main) */
-  --saffron: #ffd60a;  /* bright yellow accent */
-  --line: #2a2a2a;     /* borders on black */
-  --black: #000000;
-  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ventures by TAJI</title>
+  <meta name="description" content="Ventures by TAJI offers apparel with custom logo branding and stitch embroidery, farming supplies and equipment, medical supplies, and general supplies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="#top" aria-label="Ventures by TAJI home">Ventures by TAJI</a>
+    <nav>
+      <a href="#what-we-do">What we do</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0a0a0a;
-    --ink: #f5f1e0;
-    --teal: #e6b422;   /* brighter gold */
-    --saffron: #ffd60a;
-    --line: #262626;
-    --black: #000000;
-  }
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+  <main id="top">
+    <section class="hero">
+      <p class="brand">Ventures by</p>
+      <h1 class="wordmark" aria-label="TAJI"><span>T</span><span>A</span><span>JI</span></h1>
+      <p class="tagline">Apparel and branding, farming supplies and equipment, medical supplies and general supplies for your business or team.</p>
+      <a class="button" href="#contact">Request a quote</a>
+    </section>
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--body);
-  font-size: 1.125rem;
-  line-height: 1.6;
-}
-
-a { color: inherit; }
-a:focus-visible { outline: 3px solid var(--saffron); outline-offset: 3px; }
-
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px clamp(20px, 6vw, 80px);
-}
-.logo {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.5rem;
-  text-decoration: none;
-}
-nav a { margin-left: 24px; text-decoration: none; font-weight: 600; }
-nav a:hover { color: var(--teal); }
-
-.hero {
-  padding: clamp(40px, 10vw, 120px) clamp(20px, 6vw, 80px) clamp(60px, 10vw, 120px);
-}
-.wordmark {
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(5rem, 24vw, 20rem);
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-}
-.wordmark span:nth-child(1) { color: var(--teal); }
-.wordmark span:nth-child(2) { color: var(--saffron); }
-.brand {
-  margin: 0 0 8px;
-  font-family: var(--display);
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  font-weight: 400;
-}
-.tagline {
-  max-width: 30ch;
-  margin: 32px 0;
-  font-family: var(--display);
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-  line-height: 1.2;
-}
-
-.button {
-  display: inline-block;
-  padding: 14px 28px;
-  background: var(--ink);
-  color: var(--bg);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 6px;
-}
-.button:hover { background: var(--teal); color: #fff; }
-
-.block {
-  padding: 64px clamp(20px, 6vw, 80px);
-  border-top: 1px solid var(--line);
-}
-.block h2 {
-  margin: 0 0 32px;
-  font-family: var(--display);
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
-}
-
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 40px;
-}
-.services h3 { margin: 0 0 8px; font-family: var(--display); font-size: 1.5rem; }
-.services p { margin: 0; max-width: 34ch; }
-
-.about p, .contact p { max-width: 60ch; margin: 0 0 24px; }
-
-footer {
-  padding: 32px clamp(20px, 6vw, 80px);
-  border-top: 1px solid var(--line);
-  font-size: 0.95rem;
-}
-footer p { margin: 0; }
-
-@media (max-width: 600px) {
-  nav a { margin-left: 14px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-.wordmark::after {
-  content: "";
-  display: block;
-  height: 14px;
-  margin-top: 12px;
-  background: linear-gradient(
-    to bottom,
-    #000000 0 30%,
-    #ffffff 30% 36%,
-    #bb0000 36% 64%,
-    #ffffff 64% 70%,
-    #006600 70% 100%
-  );
-  /* Service icons */
-.icon {
-  display: block;
-  width: 56px;
-  height: 56px;/* Reggae icon colors */
-.icon.red   { color: #e31b23; }  /* red */
-.icon.gold  { color: #fcd116; }  /* gold */
-.icon.green { color: #009b3a; }  /* green */
-  margin-bottom: 14px;
-  color: var(--teal);   /* gold accent */
-}
-.icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-}
+    <section id="what-we-do" class="block">
+      <h2>What we do</h2>
+      <div class="services">
+        <div>
+          <span class="icon red" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 6 L6 12 L10 20 L15 17 V42 H33 V17 L38 20 L42 12 L32 6 C30 10 18 10 16 6 Z"/>
+            </svg>
+          </span>
+          <h3>Apparel supply</h3>
+          <p>We supply shirts, uniforms and workwear in the sizes, colors and quantities you need.</p>
+        </div>
+        <div>
+          <span class="icon gold" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="19"/>
+              <polygon points="24,11 28,20 38,21 30.5,27.5 33,37 24,32 15,37 17.5,27.5 10,21 20,20"/>
+            </svg>
+          </span>
+          <h3>Logo branding</h3>
+          <p>We put your logo on your garments so your team looks consistent everywhere.</p>
+        </div>
+        <div>
+          <span class="icon green" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 40 L36 8"/>
+              <ellipse cx="35" cy="10" rx="1.6" ry="3.4" transform="rotate(38 35 10)"/>
+              <path d="M36 14 C46 22 30 28 36 36 C39 41 30 44 22 41"/>
+            </svg>
+          </span>
+          <h3>Stitch embroidery</h3>
+          <p>Durable,
