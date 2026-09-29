@@ -173,3 +173,35 @@ footer {
   border-radius: 16px;
   padding: 24px 28px;
 }
+/* TAJI wordmark in Kenyan flag colors */
+.wordmark {
+  display: inline-block;
+  margin: 0;
+  padding: 28px 44px;
+  background: #1c1e1f;
+  border-radius: 16px;
+  line-height: 1;
+}
+
+.wordmark span {
+  display: inline-block;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4rem, 18vw, 9rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  background: linear-gradient(
+    to bottom,
+    #000000 0 38%,
+    #ffffff 38% 41.5%,
+    #bb0000 41.5% 62.5%,
+    #ffffff 62.5% 66%,
+    #006600 66% 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-text-stroke: 4px #ffffff;
+  paint-order: stroke fill;
+}
