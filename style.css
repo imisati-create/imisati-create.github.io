@@ -155,3 +155,21 @@ footer {
   border-top: 1px solid var(--line);
   font-size: 0.9rem;
 }
+/* Dark background behind the logo */
+.logo-img {
+  height: 40px;
+  width: auto;
+  background: #1c1e1f;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.wordmark img {
+  display: block;
+  width: min(520px, 92%);
+  height: auto;
+  margin: 0 auto;
+  background: #1c1e1f;
+  border-radius: 16px;
+  padding: 24px 28px;
+}
