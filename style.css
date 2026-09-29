@@ -1,22 +1,24 @@
 :root {
-  --bg: #f4f5f1;
-  --ink: #262a2b;
-  --teal: #1e7a3c;
-  --saffron: #f5c400;
-  --line: #d5d9d0;
+  --bg: #0f0f0f;        /* black */
+  --ink: #f5f1e0;      /* warm off-white text */
+  --teal: #d4a017;     /* gold accent (main) */
+  --saffron: #ffd60a;  /* bright yellow accent */
+  --line: #2a2a2a;     /* borders on black */
+  --black: #000000;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1d2021;
-    --ink: #eceee8;
-    --teal: #4fc06f;
-    --line: #363b3c;
+    --bg: #0a0a0a;
+    --ink: #f5f1e0;
+    --teal: #e6b422;   /* brighter gold */
+    --saffron: #ffd60a;
+    --line: #262626;
+    --black: #000000;
   }
 }
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
