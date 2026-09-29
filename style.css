@@ -135,18 +135,3 @@ footer p { margin: 0; }
     #006600 70% 100%
   );
 }
-/* Rwandan flag colors on "JI" */
-.wordmark span:nth-child(3) {
-  background: linear-gradient(
-    to bottom,
-    #00a3dd 0 50%,    /* sky blue */
-    #fad201 50% 75%,  /* yellow */
-    #20603d 75% 100%  /* green */
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  -webkit-text-stroke: 0;
-  filter: drop-shadow(0 0 2px #ffffff);  /* keeps it visible on the dark background */
-}
