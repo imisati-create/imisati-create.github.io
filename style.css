@@ -134,4 +134,17 @@ footer p { margin: 0; }
     #ffffff 64% 70%,
     #006600 70% 100%
   );
+  /* Service icons */
+.icon {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 14px;
+  color: var(--teal);   /* gold accent */
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 }
