@@ -4,24 +4,17 @@
   --teal: #1e7a3c;
   --saffron: #f5c400;
   --line: #d5d9d0;
-  --on-accent: #ffffff;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1d2021;
-    --ink: #eceee8;
-    --teal: #4fc06f;
-    --line: #363b3c;
-    --on-accent: #1d2021;
-  }
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
 
 body {
   margin: 0;
@@ -85,10 +78,10 @@ a { color: var(--teal); }
 /* Buttons */
 .button {
   display: inline-block;
-  margin: 6px 6px 6px 0;
+  margin: 6px;
   padding: 12px 22px;
   background: var(--teal);
-  color: var(--on-accent);
+  color: #ffffff;
   font-weight: 600;
   text-decoration: none;
   border-radius: 6px;
@@ -115,6 +108,7 @@ a { color: var(--teal); }
 }
 .services > div {
   padding: 20px;
+  background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 8px;
 }
@@ -154,54 +148,4 @@ footer {
   padding: 24px;
   border-top: 1px solid var(--line);
   font-size: 0.9rem;
-}
-/* Dark background behind the logo */
-.logo-img {
-  height: 40px;
-  width: auto;
-  background: #1c1e1f;
-  border-radius: 8px;
-  padding: 4px 8px;
-}
-
-.wordmark img {
-  display: block;
-  width: min(520px, 92%);
-  height: auto;
-  margin: 0 auto;
-  background: #1c1e1f;
-  border-radius: 16px;
-  padding: 24px 28px;
-}
-/* TAJI wordmark in Kenyan flag colors */
-.wordmark {
-  display: inline-block;
-  margin: 0;
-  padding: 28px 44px;
-  background: #1c1e1f;
-  border-radius: 16px;
-  line-height: 1;
-}
-
-.wordmark span {
-  display: inline-block;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(4rem, 18vw, 9rem);
-  line-height: 1;
-  letter-spacing: 0.03em;
-  background: linear-gradient(
-    to bottom,
-    #000000 0 38%,
-    #ffffff 38% 41.5%,
-    #bb0000 41.5% 62.5%,
-    #ffffff 62.5% 66%,
-    #006600 66% 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  -webkit-text-stroke: 4px #ffffff;
-  paint-order: stroke fill;
 }
