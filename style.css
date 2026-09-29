@@ -121,5 +121,18 @@ footer p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
-
+.wordmark::after {
+  content: "";
+  display: block;
+  height: 14px;
+  margin-top: 12px;
+  background: linear-gradient(
+    to bottom,
+    #000000 0 30%,
+    #ffffff 30% 36%,
+    #bb0000 36% 64%,
+    #ffffff 64% 70%,
+    #006600 70% 100%
+  );
+}
 
