@@ -1,19 +1,19 @@
 :root {
-  --bg: #eef3f0;
-  --ink: #10231f;
-  --teal: #0f6b5c;
-  --saffron: #f2a900;
-  --line: #c4d3cc;
+  --bg: #f4f5f1;
+  --ink: #262a2b;
+  --teal: #1e7a3c;
+  --saffron: #f5c400;
+  --line: #d5d9d0;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0d1a17;
-    --ink: #e6efe9;
-    --teal: #5fd1bb;
-    --line: #27403a;
+    --bg: #1d2021;
+    --ink: #eceee8;
+    --teal: #4fc06f;
+    --line: #363b3c;
   }
 }
 
