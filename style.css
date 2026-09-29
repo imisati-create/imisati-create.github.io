@@ -138,7 +138,10 @@ footer p { margin: 0; }
 .icon {
   display: block;
   width: 56px;
-  height: 56px;
+  height: 56px;/* Reggae icon colors */
+.icon.red   { color: #e31b23; }  /* red */
+.icon.gold  { color: #fcd116; }  /* gold */
+.icon.green { color: #009b3a; }  /* green */
   margin-bottom: 14px;
   color: var(--teal);   /* gold accent */
 }
