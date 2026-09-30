@@ -1,396 +1,503 @@
-/* ===== Colors and fonts ===== */
-:root {
-  --bg: #f4f5f1;
-  --ink: #262a2b;
-  --teal: #1e7a3c;
-  --saffron: #f5c400;
-  --line: #d5d9d0;
-  --card: #ffffff;
-  --on-accent: #ffffff;
-  --icon-red: #e31b23;
-  --icon-gold: #e0a800;
-  --icon-green: #009b3a;
-  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  color-scheme: light;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ventures by TAJI</title>
+  <meta name="description" content="Ventures by TAJI offers apparel with custom logo branding and stitch embroidery, farming supplies and equipment, medical supplies, and general supplies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    try {
+      if (localStorage.getItem("taji-theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="#top" aria-label="Ventures by TAJI home">Ventures by TAJI</a>
+    <nav>
+      <a href="#what-we-do" data-i18n="nav_what">What we do</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="controls">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="rw">RW</button>
+      </div>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+    </div>
+  </header>
 
-/* Dark mode: only when the visitor switches it on */
-:root[data-theme="dark"] {
-  --bg: #161819;
-  --ink: #eceee8;
-  --teal: #4fc06f;
-  --saffron: #f5c400;
-  --line: #34383a;
-  --card: #202324;
-  --on-accent: #0f1211;
-  --icon-red: #ff5a5f;
-  --icon-gold: #f5c400;
-  --icon-green: #3ddc84;
-  color-scheme: dark;
-}
+  <main id="top">
+    <section class="hero">
+      <p class="brand">Ventures by</p>
+      <h1 class="wordmark" aria-label="TAJI"><span>T</span><span>A</span><span>JI</span></h1>
+      <p class="tagline" data-i18n="tagline">Apparel and branding, farming supplies and equipment, medical supplies and general supplies for your business or team.</p>
+      <a class="button" href="#contact" data-i18n="quote">Request a quote</a>
+    </section>
 
-/* ===== Base ===== */
-* { box-sizing: border-box; }
+    <section id="what-we-do" class="block">
+      <h2 data-i18n="what_h2">What we do</h2>
+      <div class="services">
+        <div>
+          <span class="icon red" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 6 L6 12 L10 20 L15 17 V42 H33 V17 L38 20 L42 12 L32 6 C30 10 18 10 16 6 Z"/>
+            </svg>
+          </span>
+          <h3 data-i18n="s1_h">Apparel supply</h3>
+          <p data-i18n="s1_p">We supply shirts, uniforms and workwear in the sizes, colors and quantities you need.</p>
+        </div>
+        <div>
+          <span class="icon gold" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="19"/>
+              <polygon points="24,11 28,20 38,21 30.5,27.5 33,37 24,32 15,37 17.5,27.5 10,21 20,20"/>
+            </svg>
+          </span>
+          <h3 data-i18n="s2_h">Logo branding</h3>
+          <p data-i18n="s2_p">We put your logo on your garments so your team looks consistent everywhere.</p>
+        </div>
+        <div>
+          <span class="icon green" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 40 L36 8"/>
+              <ellipse cx="35" cy="10" rx="1.6" ry="3.4" transform="rotate(38 35 10)"/>
+              <path d="M36 14 C46 22 30 28 36 36 C39 41 30 44 22 41"/>
+            </svg>
+          </span>
+          <h3 data-i18n="s3_h">Stitch embroidery</h3>
+          <p data-i18n="s3_p">Durable, professional embroidery for logos, names and custom designs.</p>
+        </div>
+        <div>
+          <span class="icon red" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 42 V22"/>
+              <path d="M24 30 C14 30 10 22 10 13 C18 13 24 19 24 30 Z"/>
+              <path d="M24 23 C24 15 30 9 38 9 C38 17 32 23 24 23 Z"/>
+              <path d="M11 42 H37"/>
+            </svg>
+          </span>
+          <h3 data-i18n="s4_h">Farming supplies and equipment</h3>
+          <p data-i18n="s4_p">We supply farming inputs and equipment, including tools, tackle and machinery, in the quantities you need. Tell us what your farm requires and we will get you a quote.</p>
+        </div>
+        <div>
+          <span class="icon gold" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 H30 V18 H42 V30 H30 V42 H18 V30 H6 V18 H18 Z"/>
+            </svg>
+          </span>
+          <h3 data-i18n="s5_h">Medical supplies</h3>
+          <p data-i18n="s5_p">We supply medical and healthcare items for clinics, schools, businesses and individuals. Tell us what you need and we will get you a quote.</p>
+        </div>
+        <div>
+          <span class="icon green" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 16 L24 6 L42 16 V34 L24 44 L6 34 Z"/>
+              <path d="M6 16 L24 26 L42 16"/>
+              <path d="M24 26 V44"/>
+            </svg>
+          </span>
+          <h3 data-i18n="s6_h">General supplies</h3>
+          <p data-i18n="s6_p">Need something else for your business, school or team? Tell us what you are looking for and we will source it for you.</p>
+        </div>
+      </div>
+    </section>
 
-html {
-  scroll-behavior: smooth;
-  background: var(--bg);
-}
+    <section id="about" class="block about">
+      <h2 data-i18n="about_h2">About Ventures by TAJI</h2>
+      <p data-i18n="about_p">Ventures by TAJI is a business that works across several areas. We help businesses, schools and teams get quality branded clothing, we supply farming supplies and equipment, we supply medical items, and we source general supplies on request. Whatever you need, you deal with one supplier from order to delivery.</p>
+    </section>
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--body);
-  line-height: 1.6;
-}
+    <section id="contact" class="block contact">
+      <h2 data-i18n="contact_h2">Ready to place an order?</h2>
+      <p data-i18n="contact_p">Email or call us with what you need, including the items, quantities and any logo or details, and we will send you a quote.</p>
+      <p class="phones">
+        <span data-i18n="phones">Call or WhatsApp:</span>
+        <a href="tel:+250793155396">+250 793 155 396</a> |
+        <a href="tel:+254721341730">+254 721 341 730</a> |
+        <a href="tel:+254712166732">+254 712 166 732</a>
+      </p>
+      <a class="button" href="mailto:hellenlelei45@gmail.com">hellenlelei45@gmail.com</a>
+      <a class="button" href="mailto:marangaian8@gmail.com">marangaian8@gmail.com</a>
+      <a class="button" href="mailto:misatijoy1@gmail.com">misatijoy1@gmail.com</a>
+    </section>
+  </main>
 
-a { color: var(--teal); }
+  <footer>
+    <p data-i18n="footer">&copy; 2026 Ventures by TAJI. All rights reserved.</p>
+  </footer>
 
-/* ===== Header ===== */
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--line);
-}
-.logo {
-  font-family: var(--display);
-  font-weight: 800;
-  color: var(--ink);
-  text-decoration: none;
-}
-.top nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-}
-.top nav a {
-  color: var(--ink);
-  text-decoration: none;
-}
-.top nav a:hover { color: var(--teal); }
+  <script>
+    var LANGS = {
+      rw: {
+        nav_what: "Ibyo dukora",
+        nav_about: "Abo turi bo",
+        nav_contact: "Twandikire",
+        tagline: "Imyenda n'ibirango, ibikoresho by'ubuhinzi, ibikoresho by'ubuvuzi n'ibindi bikoresho rusange bikenewe mu bucuruzi bwanyu cyangwa mu itsinda ryanyu.",
+        quote: "Saba igiciro",
+        what_h2: "Ibyo dukora",
+        s1_h: "Gutanga imyenda",
+        s1_p: "Dutanga amashati, impuzankano n'imyambaro y'akazi mu ngano, amabara n'umubare mukeneye.",
+        s2_h: "Gushyira ikirango ku myenda",
+        s2_p: "Dushyira ikirango cyanyu ku myenda kugira ngo itsinda ryanyu rigaragare kimwe hose.",
+        s3_h: "Gutaka imyenda",
+        s3_p: "Ubudozi bwo gutaka bwiza kandi burambye ku birango, amazina n'ibishushanyo byihariye.",
+        s4_h: "Ibikoresho by'ubuhinzi",
+        s4_p: "Dutanga ibikoresho by'ubuhinzi, harimo ibikoresho by'intoki n'imashini, mu mubare mukeneye. Tubwire icyo umurima wanyu ukeneye tubagezeho igiciro.",
+        s5_h: "Ibikoresho by'ubuvuzi",
+        s5_p: "Dutanga ibikoresho by'ubuvuzi n'iby'ubuzima ku bigo nderabuzima, amashuri, ibigo by'ubucuruzi n'abantu ku giti cyabo. Tubwire icyo mukeneye tubagezeho igiciro.",
+        s6_h: "Ibindi bikoresho",
+        s6_p: "Mukeneye ikindi kintu mu bucuruzi, ku ishuri cyangwa mu itsinda ryanyu? Tubwire icyo mushaka tukibashakire.",
+        about_h2: "Ibyerekeye Ventures by TAJI",
+        about_p: "Ventures by TAJI ni ikigo gikora mu bice bitandukanye. Dufasha ibigo by'ubucuruzi, amashuri n'amatsinda kubona imyenda myiza iriho ibirango, dutanga ibikoresho by'ubuhinzi n'iby'ubuvuzi, kandi tubashakira ibindi bikoresho mubisabye. Icyo mukeneye cyose, mukorana n'umucuruzi umwe kuva ku itegeko kugeza ku itangwa ry'ibicuruzwa.",
+        contact_h2: "Mwiteguye gutumiza?",
+        contact_p: "Twandikire cyangwa muduhamagare mutubwira ibyo mukeneye, harimo ibicuruzwa, umubare n'ikirango cyanyu, maze tubagezeho igiciro.",
+        phones: "Duhamagare cyangwa WhatsApp:",
+        footer: "© 2026 Ventures by TAJI. Uburenganzira bwose burabitswe."
+      },
+      fr: {
+        nav_what: "Nos services",
+        nav_about: "À propos",
+        nav_contact: "Contact",
+        tagline: "Vêtements et marquage, fournitures et équipements agricoles, fournitures médicales et fournitures générales pour votre entreprise ou votre équipe.",
+        quote: "Demander un devis",
+        what_h2: "Nos services",
+        s1_h: "Fourniture de vêtements",
+        s1_p: "Nous fournissons chemises, uniformes et vêtements de travail dans les tailles, couleurs et quantités dont vous avez besoin.",
+        s2_h: "Marquage de logo",
+        s2_p: "Nous appliquons votre logo sur vos vêtements pour que votre équipe ait une image cohérente partout.",
+        s3_h: "Broderie",
+        s3_p: "Broderie professionnelle et durable pour logos, noms et motifs personnalisés.",
+        s4_h: "Fournitures et équipements agricoles",
+        s4_p: "Nous fournissons des intrants et des équipements agricoles, notamment des outils, du matériel et des machines, dans les quantités dont vous avez besoin. Dites-nous ce dont votre exploitation a besoin et nous vous enverrons un devis.",
+        s5_h: "Fournitures médicales",
+        s5_p: "Nous fournissons du matériel médical et de santé aux cliniques, écoles, entreprises et particuliers. Dites-nous ce qu'il vous faut et nous vous enverrons un devis.",
+        s6_h: "Fournitures générales",
+        s6_p: "Vous avez besoin d'autre chose pour votre entreprise, votre école ou votre équipe ? Dites-nous ce que vous cherchez et nous le trouverons pour vous.",
+        about_h2: "À propos de Ventures by TAJI",
+        about_p: "Ventures by TAJI est une entreprise active dans plusieurs domaines. Nous aidons les entreprises, les écoles et les équipes à obtenir des vêtements de qualité personnalisés, nous fournissons des équipements agricoles et du matériel médical, et nous trouvons des fournitures générales sur demande. Quel que soit votre besoin, vous n'avez qu'un seul fournisseur, de la commande à la livraison.",
+        contact_h2: "Prêt à passer commande ?",
+        contact_p: "Écrivez-nous ou appelez-nous en précisant les articles, les quantités et votre logo ou autres détails, et nous vous enverrons un devis.",
+        phones: "Appelez ou WhatsApp :",
+        footer: "© 2026 Ventures by TAJI. Tous droits réservés."
+      }
+    };
 
-/* ===== Language and theme controls ===== */
-.controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.lang {
-  display: inline-flex;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  overflow: hidden;
-}
-.lang button {
-  padding: 6px 12px;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  font-family: var(--body);
-  font-weight: 600;
-  cursor: pointer;
-}
-.lang button.active {
-  background: var(--teal);
-  color: var(--on-accent);
-}
-.theme-toggle {
-  width: 36px;
-  height: 34px;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: transparent;
-  color: var(--ink);
-  font-size: 1.05rem;
-  line-height: 1;
-  cursor: pointer;
-}
-.theme-toggle:hover { border-color: var(--teal); }
+    /* ---------- Language ---------- */
+    var EN = {};
+    var nodes = document.querySelectorAll("[data-i18n]");
+    nodes.forEach(function (el) { EN[el.getAttribute("data-i18n")] = el.textContent; });
 
-/* ===== Hero ===== */
-.hero {
-  text-align: center;
-  padding: 72px 24px 56px;
-}
-.brand {
-  margin: 0;
-  font-size: 1.1rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-.wordmark {
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(4rem, 18vw, 9rem);
-  line-height: 1;
-  color: var(--ink);
-}
-.wordmark span:nth-child(2) { color: var(--teal); }
-.tagline {
-  max-width: 560px;
-  margin: 16px auto 28px;
-  font-size: 1.15rem;
-}
+    function setLang(lang) {
+      var dict = LANGS[lang] || EN;
+      if (!LANGS[lang]) lang = "en";
+      nodes.forEach(function (el) {
+        var key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      document.documentElement.lang = lang;
+      document.querySelectorAll(".lang button").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      });
+      try { localStorage.setItem("taji-lang", lang); } catch (e) {}
+    }
 
-/* ===== Buttons ===== */
-.button {
-  display: inline-block;
-  margin: 6px;
-  padding: 12px 22px;
-  background: var(--teal);
-  color: var(--on-accent);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 6px;
-}
-.button:hover { opacity: 0.9; }
+    document.querySelectorAll(".lang button").forEach(function (b) {
+      b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+    });
 
-/* ===== Sections ===== */
-.block {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 48px 24px;
-}
-.block h2 {
-  font-family: var(--display);
-  font-weight: 800;
-  margin: 0 0 20px;
-}
+    var savedLang = null;
+    try { savedLang = localStorage.getItem("taji-lang"); } catch (e) {}
+    if (savedLang && savedLang !== "en") setLang(savedLang);
 
-/* ===== Services ===== */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.services > div {
-  padding: 20px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-.services h3 {
-  font-family: var(--display);
-  margin: 0 0 8px;
-}
-.services p { margin: 0; }
+    /* ---------- Dark mode ---------- */
+    var themeBtn = document.getElementById("theme-toggle");
 
-/* ===== Icons ===== */
-.icon {
-  display: block;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 14px;
-}
-.icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.icon.red   { color: var(--icon-red); }
-.icon.gold  { color: var(--icon-gold); }
-.icon.green { color: var(--icon-green); }
+    function setTheme(theme) {
+      if (theme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeBtn.textContent = "☀️";
+        themeBtn.setAttribute("aria-label", "Switch to light mode");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        themeBtn.textContent = "🌙";
+        themeBtn.setAttribute("aria-label", "Switch to dark mode");
+      }
+      try { localStorage.setItem("taji-theme", theme); } catch (e) {}
+    }
 
-/* ===== About ===== */
-.about p { max-width: 720px; }
+    themeBtn.addEventListener("click", function () {
+      var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      setTheme(isDark ? "light" : "dark");
+    });
 
-/* ===== Contact ===== */
-.contact { text-align: center; }
-.contact p { margin-left: auto; margin-right: auto; max-width: 640px; }
-.phones {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-.phones a { margin: 0 4px; }
+    setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
+  </script>
 
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 24px;
-  border-top: 1px solid var(--line);
-  font-size: 0.9rem;
-}
+  <!-- Chat assistant -->
+  <button type="button" id="chat-toggle" class="chat-toggle" aria-label="Open chat" aria-expanded="false" aria-controls="chat-panel">💬 Chat with us</button>
+  <section id="chat-panel" class="chat-panel" role="dialog" aria-label="TAJI Assistant" hidden>
+    <div class="chat-head">
+      <strong id="chat-title">TAJI Assistant</strong>
+      <button type="button" id="chat-close" class="chat-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="chat-log" class="chat-log" aria-live="polite"></div>
+    <div id="chat-chips" class="chat-chips"></div>
+    <div class="chat-form">
+      <input id="chat-input" type="text" autocomplete="off" maxlength="200" placeholder="Type your question…">
+      <button type="button" id="chat-send" class="chat-send">Send</button>
+    </div>
+  </section>
 
-/* ===== Small screens ===== */
-@media (max-width: 600px) {
-  .top { justify-content: center; text-align: center; }
-  .hero { padding: 48px 20px 40px; }
-  .phones a { display: block; margin: 4px 0; }
-}
+  <script>
+  (function () {
+    var PHONE = "250793155396";
+    var EMAIL = "hellenlelei45@gmail.com";
 
-/* ===== Chat assistant ===== */
-.chat-toggle {
-  --chat-top: 88px;
-  position: fixed;
-  left: 16px;
-  top: var(--chat-top);
-  z-index: 50;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
-  border: 3px solid var(--card);
-  border-radius: 999px;
-  background: var(--teal);
-  color: var(--on-accent);
-  font-family: var(--body);
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  animation: chatPulse 2.4s ease-out infinite;
-}
-.chat-toggle:hover { opacity: 0.92; }
-.chat-toggle[aria-expanded="true"] { animation: none; }
-@keyframes chatPulse {
-  0%   { box-shadow: 0 6px 20px rgba(0,0,0,0.35), 0 0 0 0 rgba(30,122,60,0.55); }
-  70%  { box-shadow: 0 6px 20px rgba(0,0,0,0.35), 0 0 0 16px rgba(30,122,60,0); }
-  100% { box-shadow: 0 6px 20px rgba(0,0,0,0.35), 0 0 0 0 rgba(30,122,60,0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .chat-toggle { animation: none; }
-}
+    var TXT = {
+      en: {
+        title: "TAJI Assistant", label: "Chat with us", placeholder: "Type your question…", send: "Send",
+        open: "Open chat", close: "Close chat",
+        chips: { services: "Our services", quote: "Get a quote", contact: "Contact us" },
+        wa: "Hello TAJI, I would like a quote.",
+        act: { wa: "WhatsApp", call: "Call", mail: "Email" },
+        a: {
+          hello: "Hi! I'm the TAJI assistant. I can answer common questions about our services and how to order. What would you like to know?",
+          services: "We offer apparel supply, logo branding, stitch embroidery, farming supplies and equipment, medical supplies, and general supplies.",
+          apparel: "We supply shirts, uniforms and workwear in the sizes, colors and quantities you need.",
+          branding: "We put your logo on your garments so your team looks consistent everywhere.",
+          embroidery: "We do durable, professional embroidery for logos, names and custom designs.",
+          farming: "We supply farming inputs and equipment, including tools and machinery. Tell us what your farm needs and we will send you a quote.",
+          medical: "We supply medical and healthcare items for clinics, schools, businesses and individuals. Tell us what you need and we will send you a quote.",
+          general: "Need something else? Tell us what you are looking for and we will source it for you.",
+          quote: "Prices depend on the items, quantities and your logo. Send us those details on WhatsApp or by email and we will send you a quote.",
+          contact: "You can call us, message us on WhatsApp, or email us. Pick an option below.",
+          whatsapp: "Tap below to message us on WhatsApp.",
+          location: "Contact us and we will confirm delivery areas and how delivery works.",
+          payment: "Contact us and we will confirm the payment options for your order.",
+          thanks: "You're welcome! Ask me anything else.",
+          fallback: "Sorry, I didn't quite get that. You can ask about our services, quotes, or how to reach us, or message us on WhatsApp."
+        }
+      },
+      fr: {
+        title: "Assistant TAJI", label: "Discutez avec nous", placeholder: "Posez votre question…", send: "Envoyer",
+        open: "Ouvrir le chat", close: "Fermer le chat",
+        chips: { services: "Nos services", quote: "Demander un devis", contact: "Nous contacter" },
+        wa: "Bonjour TAJI, je voudrais un devis.",
+        act: { wa: "WhatsApp", call: "Appeler", mail: "E-mail" },
+        a: {
+          hello: "Bonjour ! Je suis l'assistant de TAJI. Je peux répondre aux questions courantes sur nos services et la façon de commander. Que souhaitez-vous savoir ?",
+          services: "Nous proposons la fourniture de vêtements, le marquage de logo, la broderie, des fournitures et équipements agricoles, des fournitures médicales et des fournitures générales.",
+          apparel: "Nous fournissons chemises, uniformes et vêtements de travail dans les tailles, couleurs et quantités dont vous avez besoin.",
+          branding: "Nous appliquons votre logo sur vos vêtements pour que votre équipe ait une image cohérente.",
+          embroidery: "Nous réalisons des broderies professionnelles et durables : logos, noms et motifs personnalisés.",
+          farming: "Nous fournissons des intrants et des équipements agricoles, dont des outils et des machines. Dites-nous ce dont votre exploitation a besoin et nous vous enverrons un devis.",
+          medical: "Nous fournissons du matériel médical et de santé aux cliniques, écoles, entreprises et particuliers. Dites-nous ce qu'il vous faut et nous vous enverrons un devis.",
+          general: "Besoin d'autre chose ? Dites-nous ce que vous cherchez et nous le trouverons pour vous.",
+          quote: "Le prix dépend des articles, des quantités et de votre logo. Envoyez-nous ces détails sur WhatsApp ou par e-mail et nous vous enverrons un devis.",
+          contact: "Vous pouvez nous appeler, nous écrire sur WhatsApp ou par e-mail. Choisissez ci-dessous.",
+          whatsapp: "Appuyez ci-dessous pour nous écrire sur WhatsApp.",
+          location: "Contactez-nous et nous vous confirmerons les zones et les modalités de livraison.",
+          payment: "Contactez-nous et nous vous confirmerons les modes de paiement pour votre commande.",
+          thanks: "Avec plaisir ! N'hésitez pas si vous avez d'autres questions.",
+          fallback: "Désolé, je n'ai pas bien compris. Vous pouvez me poser des questions sur nos services, les devis ou comment nous joindre, ou nous écrire sur WhatsApp."
+        }
+      },
+      rw: {
+        title: "Umufasha wa TAJI", label: "Tuganire", placeholder: "Andika ikibazo cyawe…", send: "Ohereza",
+        open: "Fungura ikiganiro", close: "Funga ikiganiro",
+        chips: { services: "Ibyo dukora", quote: "Saba igiciro", contact: "Twandikire" },
+        wa: "Muraho TAJI, nifuza igiciro.",
+        act: { wa: "WhatsApp", call: "Duhamagare", mail: "Email" },
+        a: {
+          hello: "Muraho! Ndi umufasha wa TAJI. Nshobora gusubiza ibibazo bikunze kubazwa ku byo dukora n'uko mwatumiza. Mwakwifuza kumenya iki?",
+          services: "Dukora ibi: gutanga imyenda, gushyira ikirango ku myenda, gutaka imyenda, ibikoresho by'ubuhinzi, ibikoresho by'ubuvuzi n'ibindi bikoresho rusange.",
+          apparel: "Dutanga amashati, impuzankano n'imyambaro y'akazi mu ngano, amabara n'umubare mukeneye.",
+          branding: "Dushyira ikirango cyanyu ku myenda kugira ngo itsinda ryanyu rigaragare kimwe hose.",
+          embroidery: "Dutaka imyenda mu buryo bwiza kandi burambye: ibirango, amazina n'ibishushanyo byihariye.",
+          farming: "Dutanga ibikoresho by'ubuhinzi, harimo ibikoresho by'intoki n'imashini. Tubwire icyo umurima wanyu ukeneye tubagezeho igiciro.",
+          medical: "Dutanga ibikoresho by'ubuvuzi ku bigo nderabuzima, amashuri, ibigo by'ubucuruzi n'abantu ku giti cyabo. Tubwire icyo mukeneye tubagezeho igiciro.",
+          general: "Mukeneye ikindi kintu? Tubwire icyo mushaka tukibashakire.",
+          quote: "Igiciro giterwa n'ibyo mukeneye, umubare n'ikirango cyanyu. Tubwire ibyo mushaka kuri WhatsApp cyangwa kuri email, maze tubagezeho igiciro.",
+          contact: "Mushobora kuduhamagara, kutwandikira kuri WhatsApp cyangwa kuri email. Hitamo hano hasi.",
+          whatsapp: "Kanda hano hasi kugira ngo mutwandikire kuri WhatsApp.",
+          location: "Twandikire cyangwa muduhamagare tubamenyeshe aho tugeza ibicuruzwa n'uko itangwa rikorwa.",
+          payment: "Twandikire tubamenyeshe uburyo bwo kwishyura ku itegeko ryanyu.",
+          thanks: "Murakoze! Mwatubaza ikindi kintu cyose.",
+          fallback: "Mbabarire, sinasobanukiwe neza. Mushobora kubaza ku byo dukora, igiciro cyangwa uko mwatuvugisha, cyangwa mukatwandikira kuri WhatsApp."
+        }
+      }
+    };
 
-.chat-panel {
-  --chat-top: 88px;
-  position: fixed;
-  left: 16px;
-  top: calc(var(--chat-top) + 64px);
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  max-width: calc(100vw - 32px);
-  height: 560px;
-  max-height: calc(100vh - var(--chat-top) - 84px);
-  max-height: calc(100dvh - var(--chat-top) - 84px);
-  background: var(--card);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
-}
-.chat-panel[hidden] { display: none; }
+    /* Keywords (lowercase, no accents). A leading "=" means the whole word must match. */
+    var KEYS = {
+      whatsapp:   ["whatsapp"],
+      quote:      ["quote", "price", "pricing", "cost", "how much", "order", "buy", "devis", "prix", "tarif", "commande", "commander", "igiciro", "ibiciro", "gutumiza", "kugura", "amafaranga"],
+      embroidery: ["embroider", "stitch", "broderie", "broder", "gutaka", "ubudozi", "taka"],
+      branding:   ["logo", "brand", "print", "marquage", "ikirango", "ibirango"],
+      apparel:    ["shirt", "uniform", "cloth", "apparel", "workwear", "vetement", "chemise", "uniforme", "imyenda", "amashati", "impuzankano", "imyambaro"],
+      farming:    ["farm", "agric", "tool", "machine", "seed", "fertili", "irrigat", "tractor", "tracteur", "outil", "ferme", "ubuhinzi", "uhinzi", "umurima", "imashini"],
+      medical:    ["medic", "health", "clinic", "glove", "mask", "pharm", "hospital", "sante", "ubuvuzi", "vuzi", "ubuzima", "nderabuzima"],
+      general:    ["other", "general", "sourcing", "source", "autre", "generale", "ibindi"],
+      services:   ["service", "offer", "sell", "product", "what do you", "que faites", "proposez", "dukora", "ibyo dukora", "ibicuruzwa"],
+      location:   ["where", "address", "location", "deliver", "shipping", "livraison", "adresse", "aho muri", "mukorera", "kohereza", "itangwa"],
+      payment:    ["pay", "momo", "mpesa", "m-pesa", "paiement", "payer", "kwishyura", "kwishyurwa"],
+      contact:    ["contact", "phone", "call", "email", "mail", "number", "telephone", "appel", "courriel", "twandikire", "guhamagara", "nimero"],
+      thanks:     ["thank", "merci", "murakoze", "=thanks"],
+      hello:      ["=hi", "=hello", "=hey", "bonjour", "salut", "muraho", "mwaramutse", "mwiriwe"]
+    };
+    var ORDER = ["whatsapp", "quote", "embroidery", "branding", "apparel", "farming", "medical", "general", "services", "location", "payment", "contact", "thanks", "hello"];
+    var ACTIONS = {
+      quote: ["wa", "mail"], contact: ["wa", "call", "mail"], whatsapp: ["wa"],
+      apparel: ["wa"], branding: ["wa"], embroidery: ["wa"], farming: ["wa"], medical: ["wa"],
+      general: ["wa"], location: ["wa", "call"], payment: ["wa"], fallback: ["wa"]
+    };
 
-.chat-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 14px;
-  background: var(--teal);
-  color: var(--on-accent);
-  font-family: var(--display);
-  font-size: 1.2rem;
-}
-.chat-close {
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
+    var toggle = document.getElementById("chat-toggle");
+    var panel = document.getElementById("chat-panel");
+    var closeBtn = document.getElementById("chat-close");
+    var log = document.getElementById("chat-log");
+    var chips = document.getElementById("chat-chips");
+    var input = document.getElementById("chat-input");
+    var sendBtn = document.getElementById("chat-send");
+    var title = document.getElementById("chat-title");
+    var lastLang = null;
 
-.chat-log {
-  flex: 1;
-  overflow-y: auto;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.chat-msg {
-  max-width: 85%;
-  padding: 8px 12px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-.chat-msg.bot {
-  align-self: flex-start;
-  background: var(--bg);
-  border: 1px solid var(--line);
-}
-.chat-msg.user {
-  align-self: flex-end;
-  background: var(--teal);
-  color: var(--on-accent);
-}
+    function lang() {
+      var l = document.documentElement.lang;
+      return TXT[l] ? l : "en";
+    }
+    function norm(s) {
+      var t = s.toLowerCase();
+      if (t.normalize) t = t.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      return t;
+    }
+    function detect(text) {
+      var t = norm(text);
+      var words = t.split(/[^a-z0-9']+/);
+      for (var i = 0; i < ORDER.length; i++) {
+        var keys = KEYS[ORDER[i]];
+        for (var j = 0; j < keys.length; j++) {
+          var k = keys[j];
+          if (k.charAt(0) === "=") {
+            if (words.indexOf(k.slice(1)) !== -1) return ORDER[i];
+          } else if (t.indexOf(k) !== -1) {
+            return ORDER[i];
+          }
+        }
+      }
+      return "fallback";
+    }
+    function setToggleLabel() {
+      var T = TXT[lang()];
+      toggle.textContent = panel.hidden ? "💬 " + T.label : "✕ " + T.close;
+    }
+    function scrollDown() { log.scrollTop = log.scrollHeight; }
+    function addMsg(text, who) {
+      var d = document.createElement("div");
+      d.className = "chat-msg " + who;
+      d.textContent = text;
+      log.appendChild(d);
+      scrollDown();
+      return d;
+    }
+    function addActions(topic) {
+      var list = ACTIONS[topic];
+      if (!list) return;
+      var L = lang(), T = TXT[L];
+      var wrap = document.createElement("div");
+      wrap.className = "chat-actions";
+      list.forEach(function (type) {
+        var a = document.createElement("a");
+        a.className = "chat-action";
+        a.textContent = T.act[type];
+        if (type === "wa") {
+          a.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(T.wa);
+          a.target = "_blank"; a.rel = "noopener";
+        } else if (type === "call") {
+          a.href = "tel:+" + PHONE;
+        } else {
+          a.href = "mailto:" + EMAIL;
+        }
+        wrap.appendChild(a);
+      });
+      log.appendChild(wrap);
+      scrollDown();
+    }
+    function botSay(topic, delay) {
+      var L = lang();
+      var key = topic === "fallback" ? "fallback" : topic;
+      setTimeout(function () {
+        addMsg(TXT[L].a[key], "bot");
+        addActions(topic);
+      }, delay || 0);
+    }
+    function ask(text, topic) {
+      text = (text || "").trim();
+      if (!text) return;
+      addMsg(text, "user");
+      botSay(topic || detect(text), 350);
+    }
+    function refreshUI() {
+      var L = lang();
+      if (L === lastLang) return;
+      lastLang = L;
+      var T = TXT[L];
+      title.textContent = T.title;
+      input.placeholder = T.placeholder;
+      sendBtn.textContent = T.send;
+      closeBtn.setAttribute("aria-label", T.close);
+      panel.setAttribute("aria-label", T.title);
+      toggle.setAttribute("aria-label", panel.hidden ? T.open : T.close);
+      setToggleLabel();
+      chips.innerHTML = "";
+      Object.keys(T.chips).forEach(function (key) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "chat-chip";
+        b.textContent = T.chips[key];
+        b.addEventListener("click", function () { ask(T.chips[key], key); });
+        chips.appendChild(b);
+      });
+      log.innerHTML = "";
+      botSay("hello", 0);
+    }
+    function openChat() {
+      panel.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", TXT[lang()].close);
+      setToggleLabel();
+      input.focus();
+    }
+    function closeChat() {
+      panel.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", TXT[lang()].open);
+      setToggleLabel();
+    }
+    function send() {
+      var v = input.value;
+      input.value = "";
+      ask(v);
+    }
 
-.chat-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.chat-action {
-  padding: 6px 12px;
-  border: 1px solid var(--teal);
-  border-radius: 999px;
-  color: var(--teal);
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-.chat-action:hover { background: var(--teal); color: var(--on-accent); }
+    toggle.addEventListener("click", function () { panel.hidden ? openChat() : closeChat(); });
+    closeBtn.addEventListener("click", closeChat);
+    sendBtn.addEventListener("click", send);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); send(); } });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) closeChat(); });
 
-.chat-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 0 14px 10px;
-}
-.chat-chip {
-  padding: 5px 11px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--ink);
-  font-family: var(--body);
-  font-size: 0.95rem;
-  cursor: pointer;
-}
-.chat-chip:hover { border-color: var(--teal); color: var(--teal); }
-
-.chat-form {
-  display: flex;
-  gap: 8px;
-  padding: 10px 12px;
-  border-top: 1px solid var(--line);
-}
-.chat-form input {
-  flex: 1;
-  min-width: 0;
-  padding: 9px 10px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--body);
-  font-size: 16px;
-}
-.chat-send {
-  padding: 0 14px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--teal);
-  color: var(--on-accent);
-  font-family: var(--body);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* Chat: header wraps on smaller screens, so sit lower */
-@media (max-width: 760px) {
-  .chat-toggle, .chat-panel { --chat-top: 160px; }
-  .chat-toggle { padding: 12px 20px; font-size: 1.05rem; }
-}
+    refreshUI();
+    new MutationObserver(refreshUI).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  })();
+  </script>
+</body>
+</html>
