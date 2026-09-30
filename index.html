@@ -241,5 +241,185 @@
 
     setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
   </script>
-</body>
-</html>
+
+  <!-- Chat assistant -->
+  <button type="button" id="chat-toggle" class="chat-toggle" aria-label="Open chat" aria-expanded="false" aria-controls="chat-panel">💬 Chat with us</button>
+  <section id="chat-panel" class="chat-panel" role="dialog" aria-label="TAJI Assistant" hidden>
+    <div class="chat-head">
+      <strong id="chat-title">TAJI Assistant</strong>
+      <button type="button" id="chat-close" class="chat-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="chat-log" class="chat-log" aria-live="polite"></div>
+    <div id="chat-chips" class="chat-chips"></div>
+    <div class="chat-form">
+      <input id="chat-input" type="text" autocomplete="off" maxlength="200" placeholder="Type your question…">
+      <button type="button" id="chat-send" class="chat-send">Send</button>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var PHONE = "250793155396";
+    var EMAIL = "hellenlelei45@gmail.com";
+
+    var TXT = {
+      en: {
+        title: "TAJI Assistant", label: "Chat with us", placeholder: "Type your question…", send: "Send",
+        open: "Open chat", close: "Close chat",
+        chips: { services: "Our services", quote: "Get a quote", contact: "Contact us" },
+        wa: "Hello TAJI, I would like a quote.",
+        act: { wa: "WhatsApp", call: "Call", mail: "Email" },
+        a: {
+          hello: "Hi! I'm the TAJI assistant. I can answer common questions about our services and how to order. What would you like to know?",
+          services: "We offer apparel supply, logo branding, stitch embroidery, farming supplies and equipment, medical supplies, and general supplies.",
+          apparel: "We supply shirts, uniforms and workwear in the sizes, colors and quantities you need.",
+          branding: "We put your logo on your garments so your team looks consistent everywhere.",
+          embroidery: "We do durable, professional embroidery for logos, names and custom designs.",
+          farming: "We supply farming inputs and equipment, including tools and machinery. Tell us what your farm needs and we will send you a quote.",
+          medical: "We supply medical and healthcare items for clinics, schools, businesses and individuals. Tell us what you need and we will send you a quote.",
+          general: "Need something else? Tell us what you are looking for and we will source it for you.",
+          quote: "Prices depend on the items, quantities and your logo. Send us those details on WhatsApp or by email and we will send you a quote.",
+          contact: "You can call us, message us on WhatsApp, or email us. Pick an option below.",
+          whatsapp: "Tap below to message us on WhatsApp.",
+          location: "Contact us and we will confirm delivery areas and how delivery works.",
+          payment: "Contact us and we will confirm the payment options for your order.",
+          thanks: "You're welcome! Ask me anything else.",
+          fallback: "Sorry, I didn't quite get that. You can ask about our services, quotes, or how to reach us, or message us on WhatsApp."
+        }
+      },
+      fr: {
+        title: "Assistant TAJI", label: "Discutez avec nous", placeholder: "Posez votre question…", send: "Envoyer",
+        open: "Ouvrir le chat", close: "Fermer le chat",
+        chips: { services: "Nos services", quote: "Demander un devis", contact: "Nous contacter" },
+        wa: "Bonjour TAJI, je voudrais un devis.",
+        act: { wa: "WhatsApp", call: "Appeler", mail: "E-mail" },
+        a: {
+          hello: "Bonjour ! Je suis l'assistant de TAJI. Je peux répondre aux questions courantes sur nos services et la façon de commander. Que souhaitez-vous savoir ?",
+          services: "Nous proposons la fourniture de vêtements, le marquage de logo, la broderie, des fournitures et équipements agricoles, des fournitures médicales et des fournitures générales.",
+          apparel: "Nous fournissons chemises, uniformes et vêtements de travail dans les tailles, couleurs et quantités dont vous avez besoin.",
+          branding: "Nous appliquons votre logo sur vos vêtements pour que votre équipe ait une image cohérente.",
+          embroidery: "Nous réalisons des broderies professionnelles et durables : logos, noms et motifs personnalisés.",
+          farming: "Nous fournissons des intrants et des équipements agricoles, dont des outils et des machines. Dites-nous ce dont votre exploitation a besoin et nous vous enverrons un devis.",
+          medical: "Nous fournissons du matériel médical et de santé aux cliniques, écoles, entreprises et particuliers. Dites-nous ce qu'il vous faut et nous vous enverrons un devis.",
+          general: "Besoin d'autre chose ? Dites-nous ce que vous cherchez et nous le trouverons pour vous.",
+          quote: "Le prix dépend des articles, des quantités et de votre logo. Envoyez-nous ces détails sur WhatsApp ou par e-mail et nous vous enverrons un devis.",
+          contact: "Vous pouvez nous appeler, nous écrire sur WhatsApp ou par e-mail. Choisissez ci-dessous.",
+          whatsapp: "Appuyez ci-dessous pour nous écrire sur WhatsApp.",
+          location: "Contactez-nous et nous vous confirmerons les zones et les modalités de livraison.",
+          payment: "Contactez-nous et nous vous confirmerons les modes de paiement pour votre commande.",
+          thanks: "Avec plaisir ! N'hésitez pas si vous avez d'autres questions.",
+          fallback: "Désolé, je n'ai pas bien compris. Vous pouvez me poser des questions sur nos services, les devis ou comment nous joindre, ou nous écrire sur WhatsApp."
+        }
+      },
+      rw: {
+        title: "Umufasha wa TAJI", label: "Tuganire", placeholder: "Andika ikibazo cyawe…", send: "Ohereza",
+        open: "Fungura ikiganiro", close: "Funga ikiganiro",
+        chips: { services: "Ibyo dukora", quote: "Saba igiciro", contact: "Twandikire" },
+        wa: "Muraho TAJI, nifuza igiciro.",
+        act: { wa: "WhatsApp", call: "Duhamagare", mail: "Email" },
+        a: {
+          hello: "Muraho! Ndi umufasha wa TAJI. Nshobora gusubiza ibibazo bikunze kubazwa ku byo dukora n'uko mwatumiza. Mwakwifuza kumenya iki?",
+          services: "Dukora ibi: gutanga imyenda, gushyira ikirango ku myenda, gutaka imyenda, ibikoresho by'ubuhinzi, ibikoresho by'ubuvuzi n'ibindi bikoresho rusange.",
+          apparel: "Dutanga amashati, impuzankano n'imyambaro y'akazi mu ngano, amabara n'umubare mukeneye.",
+          branding: "Dushyira ikirango cyanyu ku myenda kugira ngo itsinda ryanyu rigaragare kimwe hose.",
+          embroidery: "Dutaka imyenda mu buryo bwiza kandi burambye: ibirango, amazina n'ibishushanyo byihariye.",
+          farming: "Dutanga ibikoresho by'ubuhinzi, harimo ibikoresho by'intoki n'imashini. Tubwire icyo umurima wanyu ukeneye tubagezeho igiciro.",
+          medical: "Dutanga ibikoresho by'ubuvuzi ku bigo nderabuzima, amashuri, ibigo by'ubucuruzi n'abantu ku giti cyabo. Tubwire icyo mukeneye tubagezeho igiciro.",
+          general: "Mukeneye ikindi kintu? Tubwire icyo mushaka tukibashakire.",
+          quote: "Igiciro giterwa n'ibyo mukeneye, umubare n'ikirango cyanyu. Tubwire ibyo mushaka kuri WhatsApp cyangwa kuri email, maze tubagezeho igiciro.",
+          contact: "Mushobora kuduhamagara, kutwandikira kuri WhatsApp cyangwa kuri email. Hitamo hano hasi.",
+          whatsapp: "Kanda hano hasi kugira ngo mutwandikire kuri WhatsApp.",
+          location: "Twandikire cyangwa muduhamagare tubamenyeshe aho tugeza ibicuruzwa n'uko itangwa rikorwa.",
+          payment: "Twandikire tubamenyeshe uburyo bwo kwishyura ku itegeko ryanyu.",
+          thanks: "Murakoze! Mwatubaza ikindi kintu cyose.",
+          fallback: "Mbabarire, sinasobanukiwe neza. Mushobora kubaza ku byo dukora, igiciro cyangwa uko mwatuvugisha, cyangwa mukatwandikira kuri WhatsApp."
+        }
+      }
+    };
+
+    /* Keywords (lowercase, no accents). A leading "=" means the whole word must match. */
+    var KEYS = {
+      whatsapp:   ["whatsapp"],
+      quote:      ["quote", "price", "pricing", "cost", "how much", "order", "buy", "devis", "prix", "tarif", "commande", "commander", "igiciro", "ibiciro", "gutumiza", "kugura", "amafaranga"],
+      embroidery: ["embroider", "stitch", "broderie", "broder", "gutaka", "ubudozi", "taka"],
+      branding:   ["logo", "brand", "print", "marquage", "ikirango", "ibirango"],
+      apparel:    ["shirt", "uniform", "cloth", "apparel", "workwear", "vetement", "chemise", "uniforme", "imyenda", "amashati", "impuzankano", "imyambaro"],
+      farming:    ["farm", "agric", "tool", "machine", "seed", "fertili", "irrigat", "tractor", "tracteur", "outil", "ferme", "ubuhinzi", "uhinzi", "umurima", "imashini"],
+      medical:    ["medic", "health", "clinic", "glove", "mask", "pharm", "hospital", "sante", "ubuvuzi", "vuzi", "ubuzima", "nderabuzima"],
+      general:    ["other", "general", "sourcing", "source", "autre", "generale", "ibindi"],
+      services:   ["service", "offer", "sell", "product", "what do you", "que faites", "proposez", "dukora", "ibyo dukora", "ibicuruzwa"],
+      location:   ["where", "address", "location", "deliver", "shipping", "livraison", "adresse", "aho muri", "mukorera", "kohereza", "itangwa"],
+      payment:    ["pay", "momo", "mpesa", "m-pesa", "paiement", "payer", "kwishyura", "kwishyurwa"],
+      contact:    ["contact", "phone", "call", "email", "mail", "number", "telephone", "appel", "courriel", "twandikire", "guhamagara", "nimero"],
+      thanks:     ["thank", "merci", "murakoze", "=thanks"],
+      hello:      ["=hi", "=hello", "=hey", "bonjour", "salut", "muraho", "mwaramutse", "mwiriwe"]
+    };
+    var ORDER = ["whatsapp", "quote", "embroidery", "branding", "apparel", "farming", "medical", "general", "services", "location", "payment", "contact", "thanks", "hello"];
+    var ACTIONS = {
+      quote: ["wa", "mail"], contact: ["wa", "call", "mail"], whatsapp: ["wa"],
+      apparel: ["wa"], branding: ["wa"], embroidery: ["wa"], farming: ["wa"], medical: ["wa"],
+      general: ["wa"], location: ["wa", "call"], payment: ["wa"], fallback: ["wa"]
+    };
+
+    var toggle = document.getElementById("chat-toggle");
+    var panel = document.getElementById("chat-panel");
+    var closeBtn = document.getElementById("chat-close");
+    var log = document.getElementById("chat-log");
+    var chips = document.getElementById("chat-chips");
+    var input = document.getElementById("chat-input");
+    var sendBtn = document.getElementById("chat-send");
+    var title = document.getElementById("chat-title");
+    var lastLang = null;
+
+    function lang() {
+      var l = document.documentElement.lang;
+      return TXT[l] ? l : "en";
+    }
+    function norm(s) {
+      var t = s.toLowerCase();
+      if (t.normalize) t = t.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      return t;
+    }
+    function detect(text) {
+      var t = norm(text);
+      var words = t.split(/[^a-z0-9']+/);
+      for (var i = 0; i < ORDER.length; i++) {
+        var keys = KEYS[ORDER[i]];
+        for (var j = 0; j < keys.length; j++) {
+          var k = keys[j];
+          if (k.charAt(0) === "=") {
+            if (words.indexOf(k.slice(1)) !== -1) return ORDER[i];
+          } else if (t.indexOf(k) !== -1) {
+            return ORDER[i];
+          }
+        }
+      }
+      return "fallback";
+    }
+    function setToggleLabel() {
+      var T = TXT[lang()];
+      toggle.textContent = panel.hidden ? "💬 " + T.label : "✕ " + T.close;
+    }
+    function scrollDown() { log.scrollTop = log.scrollHeight; }
+    function addMsg(text, who) {
+      var d = document.createElement("div");
+      d.className = "chat-msg " + who;
+      d.textContent = text;
+      log.appendChild(d);
+      scrollDown();
+      return d;
+    }
+    function addActions(topic) {
+      var list = ACTIONS[topic];
+      if (!list) return;
+      var L = lang(), T = TXT[L];
+      var wrap = document.createElement("div");
+      wrap.className = "chat-actions";
+      list.forEach(function (type) {
+        var a = document.createElement("a");
+        a.className = "chat-action";
+        a.textContent = T.act[type];
+        if (type === "wa") {
+          a.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(T.wa);
+          a.target = "_blank"; a.rel = "noopener";
+        } else if (type
