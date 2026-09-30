@@ -5,9 +5,29 @@
   --teal: #1e7a3c;
   --saffron: #f5c400;
   --line: #d5d9d0;
+  --card: #ffffff;
+  --on-accent: #ffffff;
+  --icon-red: #e31b23;
+  --icon-gold: #e0a800;
+  --icon-green: #009b3a;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   color-scheme: light;
+}
+
+/* Dark mode: only when the visitor switches it on */
+:root[data-theme="dark"] {
+  --bg: #161819;
+  --ink: #eceee8;
+  --teal: #4fc06f;
+  --saffron: #f5c400;
+  --line: #34383a;
+  --card: #202324;
+  --on-accent: #0f1211;
+  --icon-red: #ff5a5f;
+  --icon-gold: #f5c400;
+  --icon-green: #3ddc84;
+  color-scheme: dark;
 }
 
 /* ===== Base ===== */
@@ -55,7 +75,12 @@ a { color: var(--teal); }
 }
 .top nav a:hover { color: var(--teal); }
 
-/* ===== Language switch ===== */
+/* ===== Language and theme controls ===== */
+.controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 .lang {
   display: inline-flex;
   border: 1px solid var(--line);
@@ -73,8 +98,21 @@ a { color: var(--teal); }
 }
 .lang button.active {
   background: var(--teal);
-  color: #ffffff;
+  color: var(--on-accent);
 }
+.theme-toggle {
+  width: 36px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--teal); }
 
 /* ===== Hero ===== */
 .hero {
@@ -108,7 +146,7 @@ a { color: var(--teal); }
   margin: 6px;
   padding: 12px 22px;
   background: var(--teal);
-  color: #ffffff;
+  color: var(--on-accent);
   font-weight: 600;
   text-decoration: none;
   border-radius: 6px;
@@ -135,7 +173,7 @@ a { color: var(--teal); }
 }
 .services > div {
   padding: 20px;
-  background: #ffffff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 8px;
 }
@@ -157,9 +195,9 @@ a { color: var(--teal); }
   height: 100%;
   display: block;
 }
-.icon.red   { color: #e31b23; }
-.icon.gold  { color: #e0a800; }
-.icon.green { color: #009b3a; }
+.icon.red   { color: var(--icon-red); }
+.icon.gold  { color: var(--icon-gold); }
+.icon.green { color: var(--icon-green); }
 
 /* ===== About ===== */
 .about p { max-width: 720px; }
@@ -186,5 +224,4 @@ footer {
   .top { justify-content: center; text-align: center; }
   .hero { padding: 48px 20px 40px; }
   .phones a { display: block; margin: 4px 0; }
-  .phones a + a::before { content: none; }
 }
