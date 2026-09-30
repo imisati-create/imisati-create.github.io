@@ -145,3 +145,21 @@ footer p { margin: 0; }
   nav { order: 3; width: 100%; justify-content: space-between; }
   .hero { padding-top: 50px; }
 }
+/* Light theme (used when the toggle is set to light) */
+:root[data-theme="light"] {
+  --bg: #fff;
+  --bg2: #f4f4f4;
+  --line: #d8d8d8;
+  --text: #111;
+  --muted: #444;
+  --red-text: #bb0000;
+  --green-text: #006600;
+}
+:root[data-theme="light"] .wordmark span:nth-child(2),
+:root[data-theme="light"] .icon.gold,
+:root[data-theme="light"] nav a:hover,
+:root[data-theme="light"] .phones a,
+:root[data-theme="light"] .chat-chip,
+:root[data-theme="light"] .chat-form input { color: #111; }
+:root[data-theme="light"] :focus-visible { outline-color: #111; }
+
