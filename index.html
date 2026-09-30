@@ -20,6 +20,7 @@
     </nav>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang="en" class="active">EN</button>
+      <button type="button" data-lang="fr">FR</button>
       <button type="button" data-lang="rw">RW</button>
     </div>
   </header>
@@ -125,31 +126,59 @@
   </footer>
 
   <script>
-    var RW = {
-      nav_what: "Ibyo dukora",
-      nav_about: "Abo turi bo",
-      nav_contact: "Twandikire",
-      tagline: "Imyenda n'ibirango, ibikoresho by'ubuhinzi, ibikoresho by'ubuvuzi n'ibindi bikoresho rusange bikenewe mu bucuruzi bwanyu cyangwa mu itsinda ryanyu.",
-      quote: "Saba igiciro",
-      what_h2: "Ibyo dukora",
-      s1_h: "Gutanga imyenda",
-      s1_p: "Dutanga amashati, impuzankano n'imyambaro y'akazi mu ngano, amabara n'umubare mukeneye.",
-      s2_h: "Gushyira ikirango ku myenda",
-      s2_p: "Dushyira ikirango cyanyu ku myenda kugira ngo itsinda ryanyu rigaragare kimwe hose.",
-      s3_h: "Gutaka imyenda",
-      s3_p: "Ubudozi bwo gutaka bwiza kandi burambye ku birango, amazina n'ibishushanyo byihariye.",
-      s4_h: "Ibikoresho by'ubuhinzi",
-      s4_p: "Dutanga ibikoresho by'ubuhinzi, harimo ibikoresho by'intoki n'imashini, mu mubare mukeneye. Tubwire icyo umurima wanyu ukeneye tubagezeho igiciro.",
-      s5_h: "Ibikoresho by'ubuvuzi",
-      s5_p: "Dutanga ibikoresho by'ubuvuzi n'iby'ubuzima ku bigo nderabuzima, amashuri, ibigo by'ubucuruzi n'abantu ku giti cyabo. Tubwire icyo mukeneye tubagezeho igiciro.",
-      s6_h: "Ibindi bikoresho",
-      s6_p: "Mukeneye ikindi kintu mu bucuruzi, ku ishuri cyangwa mu itsinda ryanyu? Tubwire icyo mushaka tukibashakire.",
-      about_h2: "Ibyerekeye Ventures by TAJI",
-      about_p: "Ventures by TAJI ni ikigo gikora mu bice bitandukanye. Dufasha ibigo by'ubucuruzi, amashuri n'amatsinda kubona imyenda myiza iriho ibirango, dutanga ibikoresho by'ubuhinzi n'iby'ubuvuzi, kandi tubashakira ibindi bikoresho mubisabye. Icyo mukeneye cyose, mukorana n'umucuruzi umwe kuva ku itegeko kugeza ku itangwa ry'ibicuruzwa.",
-      contact_h2: "Mwiteguye gutumiza?",
-      contact_p: "Twandikire cyangwa muduhamagare mutubwira ibyo mukeneye, harimo ibicuruzwa, umubare n'ikirango cyanyu, maze tubagezeho igiciro.",
-      phones: "Duhamagare cyangwa WhatsApp:",
-      footer: "© 2026 Ventures by TAJI. Uburenganzira bwose burabitswe."
+    var LANGS = {
+      rw: {
+        nav_what: "Ibyo dukora",
+        nav_about: "Abo turi bo",
+        nav_contact: "Twandikire",
+        tagline: "Imyenda n'ibirango, ibikoresho by'ubuhinzi, ibikoresho by'ubuvuzi n'ibindi bikoresho rusange bikenewe mu bucuruzi bwanyu cyangwa mu itsinda ryanyu.",
+        quote: "Saba igiciro",
+        what_h2: "Ibyo dukora",
+        s1_h: "Gutanga imyenda",
+        s1_p: "Dutanga amashati, impuzankano n'imyambaro y'akazi mu ngano, amabara n'umubare mukeneye.",
+        s2_h: "Gushyira ikirango ku myenda",
+        s2_p: "Dushyira ikirango cyanyu ku myenda kugira ngo itsinda ryanyu rigaragare kimwe hose.",
+        s3_h: "Gutaka imyenda",
+        s3_p: "Ubudozi bwo gutaka bwiza kandi burambye ku birango, amazina n'ibishushanyo byihariye.",
+        s4_h: "Ibikoresho by'ubuhinzi",
+        s4_p: "Dutanga ibikoresho by'ubuhinzi, harimo ibikoresho by'intoki n'imashini, mu mubare mukeneye. Tubwire icyo umurima wanyu ukeneye tubagezeho igiciro.",
+        s5_h: "Ibikoresho by'ubuvuzi",
+        s5_p: "Dutanga ibikoresho by'ubuvuzi n'iby'ubuzima ku bigo nderabuzima, amashuri, ibigo by'ubucuruzi n'abantu ku giti cyabo. Tubwire icyo mukeneye tubagezeho igiciro.",
+        s6_h: "Ibindi bikoresho",
+        s6_p: "Mukeneye ikindi kintu mu bucuruzi, ku ishuri cyangwa mu itsinda ryanyu? Tubwire icyo mushaka tukibashakire.",
+        about_h2: "Ibyerekeye Ventures by TAJI",
+        about_p: "Ventures by TAJI ni ikigo gikora mu bice bitandukanye. Dufasha ibigo by'ubucuruzi, amashuri n'amatsinda kubona imyenda myiza iriho ibirango, dutanga ibikoresho by'ubuhinzi n'iby'ubuvuzi, kandi tubashakira ibindi bikoresho mubisabye. Icyo mukeneye cyose, mukorana n'umucuruzi umwe kuva ku itegeko kugeza ku itangwa ry'ibicuruzwa.",
+        contact_h2: "Mwiteguye gutumiza?",
+        contact_p: "Twandikire cyangwa muduhamagare mutubwira ibyo mukeneye, harimo ibicuruzwa, umubare n'ikirango cyanyu, maze tubagezeho igiciro.",
+        phones: "Duhamagare cyangwa WhatsApp:",
+        footer: "© 2026 Ventures by TAJI. Uburenganzira bwose burabitswe."
+      },
+      fr: {
+        nav_what: "Nos services",
+        nav_about: "À propos",
+        nav_contact: "Contact",
+        tagline: "Vêtements et marquage, fournitures et équipements agricoles, fournitures médicales et fournitures générales pour votre entreprise ou votre équipe.",
+        quote: "Demander un devis",
+        what_h2: "Nos services",
+        s1_h: "Fourniture de vêtements",
+        s1_p: "Nous fournissons chemises, uniformes et vêtements de travail dans les tailles, couleurs et quantités dont vous avez besoin.",
+        s2_h: "Marquage de logo",
+        s2_p: "Nous appliquons votre logo sur vos vêtements pour que votre équipe ait une image cohérente partout.",
+        s3_h: "Broderie",
+        s3_p: "Broderie professionnelle et durable pour logos, noms et motifs personnalisés.",
+        s4_h: "Fournitures et équipements agricoles",
+        s4_p: "Nous fournissons des intrants et des équipements agricoles, notamment des outils, du matériel et des machines, dans les quantités dont vous avez besoin. Dites-nous ce dont votre exploitation a besoin et nous vous enverrons un devis.",
+        s5_h: "Fournitures médicales",
+        s5_p: "Nous fournissons du matériel médical et de santé aux cliniques, écoles, entreprises et particuliers. Dites-nous ce qu'il vous faut et nous vous enverrons un devis.",
+        s6_h: "Fournitures générales",
+        s6_p: "Vous avez besoin d'autre chose pour votre entreprise, votre école ou votre équipe ? Dites-nous ce que vous cherchez et nous le trouverons pour vous.",
+        about_h2: "À propos de Ventures by TAJI",
+        about_p: "Ventures by TAJI est une entreprise active dans plusieurs domaines. Nous aidons les entreprises, les écoles et les équipes à obtenir des vêtements de qualité personnalisés, nous fournissons des équipements agricoles et du matériel médical, et nous trouvons des fournitures générales sur demande. Quel que soit votre besoin, vous n'avez qu'un seul fournisseur, de la commande à la livraison.",
+        contact_h2: "Prêt à passer commande ?",
+        contact_p: "Écrivez-nous ou appelez-nous en précisant les articles, les quantités et votre logo ou autres détails, et nous vous enverrons un devis.",
+        phones: "Appelez ou WhatsApp :",
+        footer: "© 2026 Ventures by TAJI. Tous droits réservés."
+      }
     };
 
     var EN = {};
@@ -157,7 +186,8 @@
     nodes.forEach(function (el) { EN[el.getAttribute("data-i18n")] = el.textContent; });
 
     function setLang(lang) {
-      var dict = lang === "rw" ? RW : EN;
+      var dict = LANGS[lang] || EN;
+      if (!LANGS[lang]) lang = "en";
       nodes.forEach(function (el) {
         var key = el.getAttribute("data-i18n");
         if (dict[key] !== undefined) el.textContent = dict[key];
@@ -175,7 +205,7 @@
 
     var saved = null;
     try { saved = localStorage.getItem("taji-lang"); } catch (e) {}
-    if (saved === "rw") setLang("rw");
+    if (saved && saved !== "en") setLang(saved);
   </script>
 </body>
 </html>
