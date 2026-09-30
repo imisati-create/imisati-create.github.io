@@ -422,4 +422,82 @@
         if (type === "wa") {
           a.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(T.wa);
           a.target = "_blank"; a.rel = "noopener";
-        } else if (type
+        } else if (type === "call") {
+          a.href = "tel:+" + PHONE;
+        } else {
+          a.href = "mailto:" + EMAIL;
+        }
+        wrap.appendChild(a);
+      });
+      log.appendChild(wrap);
+      scrollDown();
+    }
+    function botSay(topic, delay) {
+      var L = lang();
+      var key = topic === "fallback" ? "fallback" : topic;
+      setTimeout(function () {
+        addMsg(TXT[L].a[key], "bot");
+        addActions(topic);
+      }, delay || 0);
+    }
+    function ask(text, topic) {
+      text = (text || "").trim();
+      if (!text) return;
+      addMsg(text, "user");
+      botSay(topic || detect(text), 350);
+    }
+    function refreshUI() {
+      var L = lang();
+      if (L === lastLang) return;
+      lastLang = L;
+      var T = TXT[L];
+      title.textContent = T.title;
+      input.placeholder = T.placeholder;
+      sendBtn.textContent = T.send;
+      closeBtn.setAttribute("aria-label", T.close);
+      panel.setAttribute("aria-label", T.title);
+      toggle.setAttribute("aria-label", panel.hidden ? T.open : T.close);
+      setToggleLabel();
+      chips.innerHTML = "";
+      Object.keys(T.chips).forEach(function (key) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "chat-chip";
+        b.textContent = T.chips[key];
+        b.addEventListener("click", function () { ask(T.chips[key], key); });
+        chips.appendChild(b);
+      });
+      log.innerHTML = "";
+      botSay("hello", 0);
+    }
+    function openChat() {
+      panel.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", TXT[lang()].close);
+      setToggleLabel();
+      input.focus();
+    }
+    function closeChat() {
+      panel.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", TXT[lang()].open);
+      setToggleLabel();
+    }
+    function send() {
+      var v = input.value;
+      input.value = "";
+      ask(v);
+    }
+
+    toggle.addEventListener("click", function () { panel.hidden ? openChat() : closeChat(); });
+    closeBtn.addEventListener("click", closeChat);
+    sendBtn.addEventListener("click", send);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); send(); } });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) closeChat(); });
+
+    refreshUI();
+    new MutationObserver(refreshUI).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  })();
+  </script>
+</body>
+</html>
