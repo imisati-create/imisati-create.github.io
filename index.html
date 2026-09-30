@@ -9,6 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    try {
+      if (localStorage.getItem("taji-theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <header class="top">
@@ -18,10 +25,13 @@
       <a href="#about" data-i18n="nav_about">About</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang="en" class="active">EN</button>
-      <button type="button" data-lang="fr">FR</button>
-      <button type="button" data-lang="rw">RW</button>
+    <div class="controls">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="rw">RW</button>
+      </div>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">🌙</button>
     </div>
   </header>
 
@@ -49,163 +59,4 @@
           <span class="icon gold" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="24" cy="24" r="19"/>
-              <polygon points="24,11 28,20 38,21 30.5,27.5 33,37 24,32 15,37 17.5,27.5 10,21 20,20"/>
-            </svg>
-          </span>
-          <h3 data-i18n="s2_h">Logo branding</h3>
-          <p data-i18n="s2_p">We put your logo on your garments so your team looks consistent everywhere.</p>
-        </div>
-        <div>
-          <span class="icon green" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 40 L36 8"/>
-              <ellipse cx="35" cy="10" rx="1.6" ry="3.4" transform="rotate(38 35 10)"/>
-              <path d="M36 14 C46 22 30 28 36 36 C39 41 30 44 22 41"/>
-            </svg>
-          </span>
-          <h3 data-i18n="s3_h">Stitch embroidery</h3>
-          <p data-i18n="s3_p">Durable, professional embroidery for logos, names and custom designs.</p>
-        </div>
-        <div>
-          <span class="icon red" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 42 V22"/>
-              <path d="M24 30 C14 30 10 22 10 13 C18 13 24 19 24 30 Z"/>
-              <path d="M24 23 C24 15 30 9 38 9 C38 17 32 23 24 23 Z"/>
-              <path d="M11 42 H37"/>
-            </svg>
-          </span>
-          <h3 data-i18n="s4_h">Farming supplies and equipment</h3>
-          <p data-i18n="s4_p">We supply farming inputs and equipment, including tools, tackle and machinery, in the quantities you need. Tell us what your farm requires and we will get you a quote.</p>
-        </div>
-        <div>
-          <span class="icon gold" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 6 H30 V18 H42 V30 H30 V42 H18 V30 H6 V18 H18 Z"/>
-            </svg>
-          </span>
-          <h3 data-i18n="s5_h">Medical supplies</h3>
-          <p data-i18n="s5_p">We supply medical and healthcare items for clinics, schools, businesses and individuals. Tell us what you need and we will get you a quote.</p>
-        </div>
-        <div>
-          <span class="icon green" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 16 L24 6 L42 16 V34 L24 44 L6 34 Z"/>
-              <path d="M6 16 L24 26 L42 16"/>
-              <path d="M24 26 V44"/>
-            </svg>
-          </span>
-          <h3 data-i18n="s6_h">General supplies</h3>
-          <p data-i18n="s6_p">Need something else for your business, school or team? Tell us what you are looking for and we will source it for you.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="block about">
-      <h2 data-i18n="about_h2">About Ventures by TAJI</h2>
-      <p data-i18n="about_p">Ventures by TAJI is a business that works across several areas. We help businesses, schools and teams get quality branded clothing, we supply farming supplies and equipment, we supply medical items, and we source general supplies on request. Whatever you need, you deal with one supplier from order to delivery.</p>
-    </section>
-
-    <section id="contact" class="block contact">
-      <h2 data-i18n="contact_h2">Ready to place an order?</h2>
-      <p data-i18n="contact_p">Email or call us with what you need, including the items, quantities and any logo or details, and we will send you a quote.</p>
-      <p class="phones">
-        <span data-i18n="phones">Call or WhatsApp:</span>
-        <a href="tel:+250793155396">+250 793 155 396</a> |
-        <a href="tel:+254721341730">+254 721 341 730</a> |
-        <a href="tel:+254712166732">+254 712 166 732</a>
-      </p>
-      <a class="button" href="mailto:hellenlelei45@gmail.com">hellenlelei45@gmail.com</a>
-      <a class="button" href="mailto:marangaian8@gmail.com">marangaian8@gmail.com</a>
-      <a class="button" href="mailto:misatijoy1@gmail.com">misatijoy1@gmail.com</a>
-    </section>
-  </main>
-
-  <footer>
-    <p data-i18n="footer">&copy; 2026 Ventures by TAJI. All rights reserved.</p>
-  </footer>
-
-  <script>
-    var LANGS = {
-      rw: {
-        nav_what: "Ibyo dukora",
-        nav_about: "Abo turi bo",
-        nav_contact: "Twandikire",
-        tagline: "Imyenda n'ibirango, ibikoresho by'ubuhinzi, ibikoresho by'ubuvuzi n'ibindi bikoresho rusange bikenewe mu bucuruzi bwanyu cyangwa mu itsinda ryanyu.",
-        quote: "Saba igiciro",
-        what_h2: "Ibyo dukora",
-        s1_h: "Gutanga imyenda",
-        s1_p: "Dutanga amashati, impuzankano n'imyambaro y'akazi mu ngano, amabara n'umubare mukeneye.",
-        s2_h: "Gushyira ikirango ku myenda",
-        s2_p: "Dushyira ikirango cyanyu ku myenda kugira ngo itsinda ryanyu rigaragare kimwe hose.",
-        s3_h: "Gutaka imyenda",
-        s3_p: "Ubudozi bwo gutaka bwiza kandi burambye ku birango, amazina n'ibishushanyo byihariye.",
-        s4_h: "Ibikoresho by'ubuhinzi",
-        s4_p: "Dutanga ibikoresho by'ubuhinzi, harimo ibikoresho by'intoki n'imashini, mu mubare mukeneye. Tubwire icyo umurima wanyu ukeneye tubagezeho igiciro.",
-        s5_h: "Ibikoresho by'ubuvuzi",
-        s5_p: "Dutanga ibikoresho by'ubuvuzi n'iby'ubuzima ku bigo nderabuzima, amashuri, ibigo by'ubucuruzi n'abantu ku giti cyabo. Tubwire icyo mukeneye tubagezeho igiciro.",
-        s6_h: "Ibindi bikoresho",
-        s6_p: "Mukeneye ikindi kintu mu bucuruzi, ku ishuri cyangwa mu itsinda ryanyu? Tubwire icyo mushaka tukibashakire.",
-        about_h2: "Ibyerekeye Ventures by TAJI",
-        about_p: "Ventures by TAJI ni ikigo gikora mu bice bitandukanye. Dufasha ibigo by'ubucuruzi, amashuri n'amatsinda kubona imyenda myiza iriho ibirango, dutanga ibikoresho by'ubuhinzi n'iby'ubuvuzi, kandi tubashakira ibindi bikoresho mubisabye. Icyo mukeneye cyose, mukorana n'umucuruzi umwe kuva ku itegeko kugeza ku itangwa ry'ibicuruzwa.",
-        contact_h2: "Mwiteguye gutumiza?",
-        contact_p: "Twandikire cyangwa muduhamagare mutubwira ibyo mukeneye, harimo ibicuruzwa, umubare n'ikirango cyanyu, maze tubagezeho igiciro.",
-        phones: "Duhamagare cyangwa WhatsApp:",
-        footer: "© 2026 Ventures by TAJI. Uburenganzira bwose burabitswe."
-      },
-      fr: {
-        nav_what: "Nos services",
-        nav_about: "À propos",
-        nav_contact: "Contact",
-        tagline: "Vêtements et marquage, fournitures et équipements agricoles, fournitures médicales et fournitures générales pour votre entreprise ou votre équipe.",
-        quote: "Demander un devis",
-        what_h2: "Nos services",
-        s1_h: "Fourniture de vêtements",
-        s1_p: "Nous fournissons chemises, uniformes et vêtements de travail dans les tailles, couleurs et quantités dont vous avez besoin.",
-        s2_h: "Marquage de logo",
-        s2_p: "Nous appliquons votre logo sur vos vêtements pour que votre équipe ait une image cohérente partout.",
-        s3_h: "Broderie",
-        s3_p: "Broderie professionnelle et durable pour logos, noms et motifs personnalisés.",
-        s4_h: "Fournitures et équipements agricoles",
-        s4_p: "Nous fournissons des intrants et des équipements agricoles, notamment des outils, du matériel et des machines, dans les quantités dont vous avez besoin. Dites-nous ce dont votre exploitation a besoin et nous vous enverrons un devis.",
-        s5_h: "Fournitures médicales",
-        s5_p: "Nous fournissons du matériel médical et de santé aux cliniques, écoles, entreprises et particuliers. Dites-nous ce qu'il vous faut et nous vous enverrons un devis.",
-        s6_h: "Fournitures générales",
-        s6_p: "Vous avez besoin d'autre chose pour votre entreprise, votre école ou votre équipe ? Dites-nous ce que vous cherchez et nous le trouverons pour vous.",
-        about_h2: "À propos de Ventures by TAJI",
-        about_p: "Ventures by TAJI est une entreprise active dans plusieurs domaines. Nous aidons les entreprises, les écoles et les équipes à obtenir des vêtements de qualité personnalisés, nous fournissons des équipements agricoles et du matériel médical, et nous trouvons des fournitures générales sur demande. Quel que soit votre besoin, vous n'avez qu'un seul fournisseur, de la commande à la livraison.",
-        contact_h2: "Prêt à passer commande ?",
-        contact_p: "Écrivez-nous ou appelez-nous en précisant les articles, les quantités et votre logo ou autres détails, et nous vous enverrons un devis.",
-        phones: "Appelez ou WhatsApp :",
-        footer: "© 2026 Ventures by TAJI. Tous droits réservés."
-      }
-    };
-
-    var EN = {};
-    var nodes = document.querySelectorAll("[data-i18n]");
-    nodes.forEach(function (el) { EN[el.getAttribute("data-i18n")] = el.textContent; });
-
-    function setLang(lang) {
-      var dict = LANGS[lang] || EN;
-      if (!LANGS[lang]) lang = "en";
-      nodes.forEach(function (el) {
-        var key = el.getAttribute("data-i18n");
-        if (dict[key] !== undefined) el.textContent = dict[key];
-      });
-      document.documentElement.lang = lang;
-      document.querySelectorAll(".lang button").forEach(function (b) {
-        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
-      });
-      try { localStorage.setItem("taji-lang", lang); } catch (e) {}
-    }
-
-    document.querySelectorAll(".lang button").forEach(function (b) {
-      b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
-    });
-
-    var saved = null;
-    try { saved = localStorage.getItem("taji-lang"); } catch (e) {}
-    if (saved && saved !== "en") setLang(saved);
-  </script>
-</body>
-</html>
+              <polygon points="24,11 28,20
